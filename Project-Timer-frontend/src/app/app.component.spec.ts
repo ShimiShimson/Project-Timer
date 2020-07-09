@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Project-Timer'`, () => {
+  it(`should have as title 'project-timer-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Project-Timer');
+    expect(app.title).toEqual('project-timer-frontend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Project-Timer app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('project-timer-frontend app is running!');
   });
 });

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Project-Timer": {
+    "project-timer-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Project-Timer",
+            "outputPath": "dist/project-timer-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Project-Timer:build"
+            "browserTarget": "project-timer-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Project-Timer:build:production"
+              "browserTarget": "project-timer-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Project-Timer:build"
+            "browserTarget": "project-timer-frontend:build"
           }
         },
         "test": {
@@ -114,15 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Project-Timer:serve"
+            "devServerTarget": "project-timer-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Project-Timer:serve:production"
+              "devServerTarget": "project-timer-frontend:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "Project-Timer"
+    }
+  },
+  "defaultProject": "project-timer-frontend",
+  "cli": {
+    "analytics": "0c5333dc-2127-457b-bc2a-3e0edb44e1df"
+  }
 }
