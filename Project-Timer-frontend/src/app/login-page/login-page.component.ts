@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, Validators} from '@angular/forms';
-import { passwordValidator } from './correct-password.directive';
 
 /**
  * @title Input with error messages
@@ -13,6 +12,7 @@ import { passwordValidator } from './correct-password.directive';
 export class LoginPageComponent implements OnInit {
 
   loginSuccess = false;
+  formSubmitted = false;
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -21,8 +21,8 @@ export class LoginPageComponent implements OnInit {
   passwordFormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(4),
-    Validators.maxLength(8),
-    passwordValidator(/password/i),
+    Validators.maxLength(10),
+    Validators.pattern(/password/),
   ])
 
   onSubmit() {
@@ -32,7 +32,5 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit () {
-    // console.log(this.emailFormControl)
-    // console.log(this.passwordFormControl)
   }
 }

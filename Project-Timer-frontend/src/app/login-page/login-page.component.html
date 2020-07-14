@@ -12,7 +12,7 @@
       <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
       <input type="password" matInput [formControl]="passwordFormControl" placeholder="password">
-      <mat-error *ngIf="passwordFormControl.hasError('incorrectPassword')">
+      <mat-error *ngIf="passwordFormControl.hasError('pattern')">
         Please enter correct password
       </mat-error>
       <mat-error *ngIf="passwordFormControl.hasError('minlength')">
