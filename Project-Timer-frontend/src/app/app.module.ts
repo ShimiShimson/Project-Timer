@@ -8,17 +8,14 @@ import { SliderComponent } from './slider/slider.component';
 import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SliderComponent
-  ],
+  declarations: [AppComponent, SliderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
