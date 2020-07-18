@@ -1,15 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, Validators} from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
-/**
- * @title Input with error messages
- */
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
 
   loginSuccess = false;
   formSubmitted = false;
@@ -26,11 +23,6 @@ export class LoginPageComponent implements OnInit {
   ])
 
   onSubmit() {
-    console.log(this.emailFormControl)
-    console.log(this.passwordFormControl)
     this.loginSuccess = true;
-  }
-
-  ngOnInit () {
   }
 }
