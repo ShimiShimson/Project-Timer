@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -8,21 +8,29 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class LoginPageComponent {
 
-  loginSuccess = false;
+  loginSuccessful = false;
   formSubmitted = false;
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(4),
-    Validators.maxLength(10),
-    Validators.pattern(/password/),
-  ])
+  loginForm = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(10),
+      Validators.pattern(/password/),
+    ])
+  })
+
+  isLoginSuccess() {
+    if (this.loginForm.controls.password.value === "password") return this.loginSuccessful = true;
+    else return;
+  }
 
   onSubmit() {
-    this.loginSuccess = true;
+    this.isLoginSuccess();
+    console.log(this.loginForm);
   }
 }
