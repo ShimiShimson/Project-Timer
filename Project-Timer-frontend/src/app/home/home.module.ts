@@ -6,6 +6,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { DialogComponent, DialogContent } from '../dashboard/add-project/dialog/dialog.component';
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class HomeModule { }

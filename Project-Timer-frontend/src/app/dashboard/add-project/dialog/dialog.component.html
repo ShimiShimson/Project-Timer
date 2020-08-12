@@ -1,3 +1,16 @@
-<button mat-fab (click)="openDialog()">
-    <mat-icon>add</mat-icon>
-  </button>
+<ol>
+  <li>
+    <mat-form-field>
+      <mat-label>What's your name?</mat-label>
+      <input matInput [(ngModel)]="name" />
+    </mat-form-field>
+  </li>
+  <li>
+    <button mat-fab color="accent" (click)="openDialog()" >
+      <mat-icon>add</mat-icon>
+    </button>
+  </li>
+  <li *ngIf="projectName">
+    Name of your project: <i>{{ projectName }}</i>
+  </li>
+</ol>
