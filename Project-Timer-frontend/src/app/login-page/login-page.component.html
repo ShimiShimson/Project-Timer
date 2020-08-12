@@ -1,0 +1,49 @@
+<form class="login-form" [formGroup]="loginForm">
+  <mat-form-field class="full-width">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      formControlName="email"
+      placeholder="Ex. pat@example.com"
+    />
+    <mat-error
+      *ngIf="
+        loginForm.controls.email.hasError('email') &&
+        !loginForm.controls.email.hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="loginForm.controls.email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      matInput
+      formControlName="password"
+      placeholder="password"
+    />
+    <mat-error *ngIf="loginForm.controls.password.hasError('pattern')">
+      Please enter correct password
+    </mat-error>
+    <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">
+      Password is <strong>too short</strong>
+    </mat-error>
+    <mat-error *ngIf="loginForm.controls.password.hasError('maxlength')">
+      Password is <strong>too long</strong>
+    </mat-error>
+    <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <button
+    type="submit"
+    [disabled]="!loginForm.valid"
+    (click)="onSubmit()"
+  >
+    Login
+  </button>
+</form>

@@ -1,23 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material/material.module';
-import { HomeModule } from './home/home.module';
+import { LoginPageComponent } from './login-page/login-page.component'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MaterialModule } from './shared/material/material.module'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    LoginPageComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    HomeModule
-  ],
-  exports: [
+    ReactiveFormsModule,
+    FormsModule,
     MaterialModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
