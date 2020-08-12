@@ -1,5 +1,7 @@
+import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +9,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
-
-  loginSuccessful = false;
-  formSubmitted = false;
+  constructor (public router: Router) {}
 
   loginForm = new FormGroup({
     email: new FormControl('', [
@@ -24,13 +24,7 @@ export class LoginPageComponent {
     ])
   })
 
-  isLoginSuccess() {
-    if (this.loginForm.controls.password.value === "password") return this.loginSuccessful = true;
-    else return;
-  }
-
-  onSubmit() {
-    this.isLoginSuccess();
-    console.log(this.loginForm);
+  onSubmit(): void {
+    this.router.navigate([''])
   }
 }
