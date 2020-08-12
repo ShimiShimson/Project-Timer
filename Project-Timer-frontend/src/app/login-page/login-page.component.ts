@@ -35,6 +35,6 @@ export class LoginPageComponent implements OnInit{
   }
 
   onSubmit(): void {
-    this.router.navigate([''])
+    this.router.navigate(['/dashboard'])
   }
 }
