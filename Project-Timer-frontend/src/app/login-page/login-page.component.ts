@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit{
     this.validateForm();
   }
 
-  validateForm(): void {
+  private validateForm(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -34,7 +34,7 @@ export class LoginPageComponent implements OnInit{
     })
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     this.router.navigate(['/dashboard'])
   }
 }
