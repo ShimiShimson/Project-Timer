@@ -11,9 +11,4 @@ export class AddProjectComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onAddProject() {
-    console.log('New project!');
-  }
-
 }
