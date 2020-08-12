@@ -9,10 +9,15 @@ import { Router } from '@angular/router';
 })
 
 export class LoginPageComponent implements OnInit{
-  constructor (public router: Router) {}
   public loginForm: FormGroup;
   public email: FormControl;
   public password: FormControl;
+
+  constructor (public router: Router) {}
+
+  ngOnInit(): void {
+    this.validateForm();
+  }
 
   validateForm(): void {
     this.loginForm = new FormGroup({
@@ -28,11 +33,6 @@ export class LoginPageComponent implements OnInit{
       ])
     })
   }
-
-  ngOnInit(): void {
-    this.validateForm();
-  }
-
 
   onSubmit(): void {
     this.router.navigate([''])
