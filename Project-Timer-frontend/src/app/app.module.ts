@@ -6,13 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './login-page/login-page.component'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material/material.module';
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -20,8 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
-
+    MaterialModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
