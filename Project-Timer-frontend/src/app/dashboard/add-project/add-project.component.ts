@@ -1,32 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Project } from 'src/app/shared/interfaces/project.interface';
-import { DashboardService } from '../../core/services/dashboard.service';
 import { ProjectService } from '../../core/services/project.service';
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
-  styleUrls: ['./add-project.component.scss']
+  styleUrls: ['./add-project.component.scss'],
 })
-export class AddProjectComponent implements OnInit {
-  project: Project;
+export class AddProjectComponent {
+  public project: Project;
 
-  constructor(public dialog: MatDialog, private dashboardService: DashboardService, private projectService: ProjectService) {}
-  ngOnInit(): void {
-  }
+  constructor(
+    public dialog: MatDialog,
+    private projectService: ProjectService
+  ) {}
 
-  openDialog(): void {
+  public openDialog(): void {
     const project: Project = {
-      projectName: ""
-    }
+      projectName: '',
+    };
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '300px',
-      data: project
+      data: project,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       this.projectService.addProject(result);
     });
   }

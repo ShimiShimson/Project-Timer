@@ -87,7 +87,6 @@ export const materialModules = [
     MatTreeModule,
     OverlayModule,
     PortalModule,
-
 ]
 
 @NgModule({
