@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { Project } from '../../shared/interfaces/project.interface';
 
 @Injectable({
@@ -7,7 +6,6 @@ import { Project } from '../../shared/interfaces/project.interface';
 })
 export class ProjectService {
   private projects: Project[] = [];
-  private projects$ = new BehaviorSubject<Project[]>(this.projects);
 
   public addProject(project: Project): void {
     this.projects.push(project);
