@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', component: LoginPageComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dialog', component: DialogComponent },
-
 ];
 
 @NgModule({
