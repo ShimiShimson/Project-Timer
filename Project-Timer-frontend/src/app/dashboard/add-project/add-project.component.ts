@@ -10,14 +10,14 @@ import { DialogComponent } from './dialog/dialog.component';
   styleUrls: ['./add-project.component.scss'],
 })
 export class AddProjectComponent {
-  project: Project;
+  public project: Project;
 
   constructor(
     public dialog: MatDialog,
     private projectService: ProjectService
   ) {}
 
-  openDialog(): void {
+  public openDialog(): void {
     const project: Project = {
       projectName: '',
     };

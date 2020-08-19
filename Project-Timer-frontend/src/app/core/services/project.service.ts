@@ -11,6 +11,7 @@ export class ProjectService {
 
   public addProject(project: Project): void {
     this.projects.push(project);
+    
     if (this.isLocalEmpty()) this.whenLocalEmpty(project);
     else this.whenLocalHaveProjects(project);
   }
