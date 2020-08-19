@@ -1,16 +1,12 @@
-<ol>
-  <li>
-    <mat-form-field>
-      <mat-label>What's your name?</mat-label>
-      <input matInput [(ngModel)]="name" />
-    </mat-form-field>
-  </li>
-  <li>
-    <button mat-fab color="accent" (click)="openDialog()" >
-      <mat-icon>add</mat-icon>
-    </button>
-  </li>
-  <li *ngIf="projectName">
-    Name of your project: <i>{{ projectName }}</i>
-  </li>
-</ol>
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>What's the name of your project?</p>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.projectName" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick(data)">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

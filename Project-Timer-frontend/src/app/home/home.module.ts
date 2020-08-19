@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { AddProjectComponent } from '../dashboard/add-project/add-project.component';
 import { MaterialModule } from '../shared/material/material.module';
-import { DialogComponent, DialogContent } from '../dashboard/add-project/dialog/dialog.component';
+import { DialogComponent } from '../dashboard/add-project/dialog/dialog.component';
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
+import { ProjectsComponent } from '../dashboard/projects/projects.component';
 
 @NgModule({
   declarations: [ 
@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent, 
     AddProjectComponent, 
     DialogComponent,
-    DialogContent
+    ProjectsComponent,
   ],
   imports: [
     CommonModule,

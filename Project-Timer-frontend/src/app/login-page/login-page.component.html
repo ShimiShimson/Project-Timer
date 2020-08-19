@@ -1,10 +1,10 @@
 <form class="login-form" [formGroup]="loginForm">
   <mat-form-field class="full-width">
     <mat-label>Email</mat-label>
-    <input
-      matInput
-      formControlName="email"
-      placeholder="Ex. pat@example.com"
+    <input 
+      matInput 
+      formControlName="email" 
+      placeholder="Ex. pat@example.com" 
     />
     <mat-error
       *ngIf="
@@ -39,11 +39,7 @@
       Password is <strong>required</strong>
     </mat-error>
   </mat-form-field>
-  <button
-    type="submit"
-    [disabled]="!loginForm.valid"
-    (click)="onSubmit()"
-  >
+  <button type="submit" [disabled]="!loginForm.valid" (click)="onSubmit()">
     Login
   </button>
 </form>
