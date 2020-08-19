@@ -7,6 +7,7 @@ import { DialogComponent } from '../dashboard/add-project/dialog/dialog.componen
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ProjectsComponent } from '../dashboard/projects/projects.component';
 
 @NgModule({
   declarations: [ 
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent, 
     AddProjectComponent, 
     DialogComponent,
+    ProjectsComponent
   ],
   imports: [
     CommonModule,
