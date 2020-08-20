@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DialogComponent } from './dashboard/add-project/dialog/dialog.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DialogComponent } from '@app-dialog/dialog.component';
+import { DashboardComponent } from '@app-dashboard/dashboard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [

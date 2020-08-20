@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Project } from 'src/app/shared/interfaces/project.interface';
-import { ProjectService } from '../../core/services/project.service';
+import { ProjectService } from '@app-services/project.service';
+import { Project } from '@app-interfaces/project.interface';
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
