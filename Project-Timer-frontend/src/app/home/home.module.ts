@@ -10,18 +10,17 @@ import { FormsModule } from '@angular/forms';
 import { ProjectsComponent } from '../dashboard/projects/projects.component';
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     LoginPageComponent,
-    DashboardComponent, 
-    AddProjectComponent, 
+    DashboardComponent,
+    AddProjectComponent,
     DialogComponent,
-    ProjectsComponent
+    ProjectsComponent,
   ],
   imports: [
-    CommonModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    FormsModule,
-  ],
+    CommonModule, 
+    MaterialModule, 
+    ReactiveFormsModule, 
+    FormsModule],
 })
-export class HomeModule { }
+export class HomeModule {}

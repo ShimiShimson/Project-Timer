@@ -7,7 +7,6 @@ import { Project } from 'src/app/shared/interfaces/project.interface';
   templateUrl: 'dialog.component.html',
 })
 export class DialogComponent {
-
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Project

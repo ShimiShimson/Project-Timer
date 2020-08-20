@@ -13,7 +13,7 @@ import { HomeModule } from '../app/home/home.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule,  
+    FormsModule,
     HomeModule,
   ],
   providers: [],
