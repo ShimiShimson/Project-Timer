@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectService } from '@app-services/project.service';
 import { Project } from '@app-interfaces/project.interface';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from '@app-dialog/dialog.component';
 
 @Component({
   selector: 'app-add-project',
