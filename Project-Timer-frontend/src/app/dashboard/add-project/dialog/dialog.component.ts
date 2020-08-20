@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Project } from 'src/app/shared/interfaces/project.interface';
+import { Project } from '../../../shared/interfaces/project.interface';
 
 @Component({
   selector: 'app-dialog',
@@ -12,7 +12,7 @@ export class DialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: Project
   ) {}
 
-  public onNoClick(data: Project): void {
-    this.dialogRef.close(data);
+  public onNoClick(): void {
+    this.dialogRef.close();
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Project } from 'src/app/shared/interfaces/project.interface';
+import { Project } from '../../shared/interfaces/project.interface';
 import { ProjectService } from '../../core/services/project.service';
 import { DialogComponent } from './dialog/dialog.component';
 
@@ -27,7 +27,7 @@ export class AddProjectComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.projectService.addProject(result);
+      if (result) this.projectService.addProject(result);
     });
   }
 }
