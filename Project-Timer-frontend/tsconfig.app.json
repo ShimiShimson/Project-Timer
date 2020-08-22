@@ -14,6 +14,7 @@
       "@app-dialog/*": ["app/dashboard/add-project/dialog/*"],
       "@app-login-page/*": ["app/login-page/*"],
       "@app-material/*": ["app/shared/material/*"],
+      "@app-nav/*": ["app/dashboard/nav/*"],
     }
   },
   "files": ["src/main.ts", "src/polyfills.ts"],

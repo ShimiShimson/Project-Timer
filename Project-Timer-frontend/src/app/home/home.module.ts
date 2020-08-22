@@ -8,6 +8,8 @@ import { LoginPageComponent } from '@app-login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ProjectsComponent } from '@app-dashboard-projects/projects.component';
+import { NavComponent } from '../dashboard/nav/nav.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { ProjectsComponent } from '@app-dashboard-projects/projects.component';
     AddProjectComponent,
     DialogComponent,
     ProjectsComponent,
+    NavComponent,
   ],
   imports: [
     CommonModule, 
     MaterialModule, 
     ReactiveFormsModule, 
-    FormsModule],
+    FormsModule,
+    RouterModule,
+  ],
 })
 export class HomeModule {}

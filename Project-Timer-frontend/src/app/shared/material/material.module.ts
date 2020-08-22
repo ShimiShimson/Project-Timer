@@ -42,6 +42,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { LayoutModule } from '@angular/cdk/layout';
 
 export const materialModules = [
   A11yModule,
@@ -87,6 +88,7 @@ export const materialModules = [
   MatTreeModule,
   OverlayModule,
   PortalModule,
+  LayoutModule,
 ];
 
 @NgModule({
