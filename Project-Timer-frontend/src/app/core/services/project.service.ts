@@ -8,10 +8,15 @@ import { Project } from '../../shared/interfaces/project.interface';
 export class ProjectService {
   private projectList: Project[] = [];
   private projects$ = new BehaviorSubject<Project[]>(this.projectList);
-  private jsonData = JSON.parse(localStorage.getItem('projectList'))
+ 
+  constructor() {
+    const jsonData = JSON.parse(localStorage.getItem('projectList'));
+    if (jsonData) {
+      this.projectList.push(...jsonData);
+    }
+  }
   
   public addProject(project: Project): void {
-    if (this.jsonData) this.projectList.push(...this.jsonData);
     this.projectList.push(project);
     localStorage.setItem('projectList', JSON.stringify(this.projectList));
   }
