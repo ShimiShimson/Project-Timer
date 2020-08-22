@@ -18,9 +18,10 @@ import { ProjectsComponent } from '../dashboard/projects/projects.component';
     ProjectsComponent,
   ],
   imports: [
-    CommonModule, 
-    MaterialModule, 
-    ReactiveFormsModule, 
-    FormsModule],
+    MaterialModule,
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
 export class HomeModule {}
