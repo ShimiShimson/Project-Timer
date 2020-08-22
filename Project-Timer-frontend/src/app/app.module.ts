@@ -7,15 +7,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeModule } from '../app/home/home.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule,  
+    FormsModule,
     HomeModule,
   ],
   providers: [],
