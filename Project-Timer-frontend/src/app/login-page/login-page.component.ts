@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ export class LoginPageComponent implements OnInit{
   public email: FormControl;
   public password: FormControl;
 
-  constructor (public router: Router) {}
+  constructor (public router: Router, private location: Location) {}
 
   ngOnInit(): void {
     this.validateForm();
@@ -35,5 +36,9 @@ export class LoginPageComponent implements OnInit{
 
   public onSubmit(): void {
     this.router.navigate(['/dashboard'])
+  }
+
+  public onGoBack(): void {
+    this.location.back();
   }
 }
