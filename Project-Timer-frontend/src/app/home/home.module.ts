@@ -8,6 +8,7 @@ import { LoginPageComponent } from '@app-login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ProjectsComponent } from '@app-dashboard-projects/projects.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import { ProjectsComponent } from '@app-dashboard-projects/projects.component';
     ProjectsComponent,
   ],
   imports: [
-    MaterialModule,
-    CommonModule,
-    ReactiveFormsModule,
+    CommonModule, 
+    MaterialModule, 
+    ReactiveFormsModule, 
     FormsModule,
+    RouterModule,
   ],
 })
 export class HomeModule {}
