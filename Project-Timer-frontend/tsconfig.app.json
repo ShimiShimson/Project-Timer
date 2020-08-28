@@ -3,7 +3,18 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "src",
+    "paths": {
+      "@app-services/*": ["app/core/services/*"],
+      "@app-interfaces/*": ["app/shared/interfaces/*"],
+      "@app-add-project/*": ["app/dashboard/add-project/*"],
+      "@app-dashboard/*": ["app/dashboard/*"],
+      "@app-dashboard-projects/*": ["app/dashboard/projects/*"],
+      "@app-dialog/*": ["app/dashboard/add-project/dialog/*"],
+      "@app-login-page/*": ["app/login-page/*"],
+      "@app-material/*": ["app/shared/material/*"],
+    }
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
   "include": ["src/**/*.d.ts"]

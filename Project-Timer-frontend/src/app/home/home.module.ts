@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { AddProjectComponent } from '../dashboard/add-project/add-project.component';
-import { MaterialModule } from '../shared/material/material.module';
-import { DialogComponent } from '../dashboard/add-project/dialog/dialog.component';
-import { LoginPageComponent } from '../login-page/login-page.component';
+import { DashboardComponent } from '@app-dashboard/dashboard.component';
+import { AddProjectComponent } from '@app-add-project/add-project.component';
+import { MaterialModule } from '@app-material/material.module';
+import { DialogComponent } from '@app-dialog/dialog.component';
+import { LoginPageComponent } from '@app-login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { ProjectsComponent } from '../dashboard/projects/projects.component';
+import { ProjectsComponent } from '@app-dashboard-projects/projects.component';
 
 @NgModule({
   declarations: [
