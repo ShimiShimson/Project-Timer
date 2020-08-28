@@ -27,7 +27,7 @@ export class AddProjectComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.projectService.addProject(result);
+      if (result) this.projectService.addProject(result);
     });
   }
 }
