@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ProjectService } from '@app-services/project.service';
+import { FirebaseService } from '@app-services/firebase.service';
 import { Project } from '@app-interfaces/project.interface';
 import { DialogComponent } from '@app-dialog/dialog.component';
 
@@ -10,11 +10,9 @@ import { DialogComponent } from '@app-dialog/dialog.component';
   styleUrls: ['./add-project.component.scss'],
 })
 export class AddProjectComponent {
-  public project: Project;
-
   constructor(
     public dialog: MatDialog,
-    private projectService: ProjectService
+    private firebaseService: FirebaseService
   ) {}
 
   public openDialog(): void {
@@ -27,7 +25,7 @@ export class AddProjectComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result) this.projectService.addProject(result);
+      this.firebaseService.updateDatabase(result);
     });
   }
 }

@@ -1,3 +1,7 @@
-<div *ngFor="let project of projects">
-  {{ project.projectName }}
+<h2>Projects from Firebase</h2>
+<div>
+  <p *ngFor="let project of projectList | async">
+    <strong>Name: </strong>
+    {{ project.content.projectName }}
+  </p>
 </div>

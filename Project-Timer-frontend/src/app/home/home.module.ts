@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ProjectsComponent } from '@app-dashboard-projects/projects.component';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '@environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule, 
     FormsModule,
     RouterModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
 })
 export class HomeModule {}
