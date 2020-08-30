@@ -1,7 +1,9 @@
 <h2>Projects from Firebase</h2>
-<div>
-  <p *ngFor="let project of projectList | async">
-    <strong>Name: </strong>
-    {{ project.content.projectName }}
-  </p>
+<div *ngFor="let project of projects" style="width: 300px;">
+  <app-project-details [project]="project"></app-project-details>
+</div>
+<div style="margin-top: 20px;">
+  <button mat-raised-button color="warn" (click)="deleteAllProjects()">
+    Delete All
+  </button>
 </div>

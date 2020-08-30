@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '@environments/environment';
+import { ProjectDetailsComponent } from '@app-dashboard/project-details/project-details.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { environment } from '@environments/environment';
     AddProjectComponent,
     DialogComponent,
     ProjectsComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     CommonModule, 

@@ -1,19 +1,11 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import { firebase } from "./firebase.conf"
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyBBOtqF1FTSMe-uYfWV09euTp2OgnmiPYo",
-    authDomain: "project-timer-shimi.firebaseapp.com",
-    databaseURL: "https://project-timer-shimi.firebaseio.com",
-    projectId: "project-timer-shimi",
-    storageBucket: "project-timer-shimi.appspot.com",
-    messagingSenderId: "843600996148",
-    appId: "1:843600996148:web:27cdc8cc5cd1f3926ae761",
-    measurementId: "G-FQ69JSB11Q"
-  }
+  firebase
 };
 
 /*

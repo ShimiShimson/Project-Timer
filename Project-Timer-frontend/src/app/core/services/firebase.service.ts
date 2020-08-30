@@ -1,19 +1,40 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Project } from '@app-interfaces/project.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseService {
-  constructor(public db: AngularFireDatabase) {}
+  private dbPath = '/projectList';
+  projectListRef: AngularFireList<Project> = null;
 
-  getProjects(): Observable<any> {
-    return this.db.list('projectList').valueChanges();
+  constructor(private db: AngularFireDatabase) {
+    this.projectListRef = db.list(this.dbPath);
   }
 
-  updateDatabase(result: string): void {
-    this.db.list('projectList').push({ content: result });
-    result = '';
+  getProjects(): Observable<any> {
+    return this.db.list(this.dbPath).valueChanges();
+  }
+
+  createProject(project: Project): void {
+    this.projectListRef.push(project);
+  }
+
+  updateProject(key: string, value: any): Promise<void> {
+    return this.projectListRef.update(key, value);
+  }
+
+  deleteProject(key: string): Promise<void> {
+    return this.projectListRef.remove(key);
+  }
+
+  getProjectList(): AngularFireList<Project> {
+    return this.projectListRef;
+  }
+
+  deleteAllProjects(): Promise<void> {
+    return this.projectListRef.remove();
   }
 }

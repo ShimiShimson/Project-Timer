@@ -1,0 +1,10 @@
+<div *ngIf="project">
+    <div>
+        <strong>Project Name: </strong>
+        {{ project.projectName }} 
+    </div>
+    <input #projectName placeholder="Update project name" style="display: block">
+    <button mat-raised-button color="primary" (click)="updateProjectName(projectName.value)">Update</button>
+    <button mat-raised-button color="warn" (click)='deleteProject()'>Delete</button>
+    <hr>
+  </div>

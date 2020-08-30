@@ -25,7 +25,7 @@ export class AddProjectComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.firebaseService.updateDatabase(result);
+      this.firebaseService.createProject(result);
     });
   }
 }
