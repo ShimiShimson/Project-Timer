@@ -24,8 +24,11 @@ export class ProjectsComponent implements OnInit {
       .getProjectList()
       .snapshotChanges()
       .pipe(
-        map((changes) =>
-          changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
+        map((changes) => 
+          {
+            // console.log(changes.payload.val())
+            return changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
+          }
         )
       )
       .subscribe((projects) => {
@@ -34,6 +37,10 @@ export class ProjectsComponent implements OnInit {
   }
 
   deleteAllProjects() {
-    this.firebaseService.deleteAllProjects().catch((err) => console.log(err));
+    const result = window.confirm('Are you sure you want to delete ALL projects?')
+    if (!result) return
+    this.firebaseService
+      .deleteAllProjects()
+      .catch((err) => console.log(err));
   }
 }

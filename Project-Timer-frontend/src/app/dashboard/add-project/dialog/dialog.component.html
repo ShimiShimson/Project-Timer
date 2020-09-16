@@ -2,8 +2,12 @@
 <div mat-dialog-content>
   <p>What's the name of your project?</p>
   <mat-form-field>
-    <mat-label>Name</mat-label>
+    <mat-label>Project Name</mat-label>
     <input matInput [(ngModel)]="data.projectName" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Project Owner</mat-label>
+    <input matInput [(ngModel)]="data.projectOwner" />
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

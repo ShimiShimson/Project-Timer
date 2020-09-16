@@ -22,8 +22,8 @@ export class FirebaseService {
     this.projectListRef.push(project);
   }
 
-  updateProject(key: string, value: any): Promise<void> {
-    return this.projectListRef.update(key, value);
+  updateProject(key: string, data: any): Promise<void> {
+    return this.projectListRef.update(key, data)
   }
 
   deleteProject(key: string): Promise<void> {
@@ -36,5 +36,9 @@ export class FirebaseService {
 
   deleteAllProjects(): Promise<void> {
     return this.projectListRef.remove();
+  }
+
+  stateChanges() {
+    this.projectListRef.stateChanges().subscribe(v => console.log(v))
   }
 }

@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '@environments/environment';
 import { ProjectDetailsComponent } from '@app-dashboard/project-details/project-details.component';
+import { ProjectDetailsDialog } from '@app-dashboard/project-details/project-details-dialog/project-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProjectDetailsComponent } from '@app-dashboard/project-details/project-
     AddProjectComponent,
     DialogComponent,
     ProjectsComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ProjectDetailsDialog,
   ],
   imports: [
     CommonModule, 
