@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ProjectService } from '@app-services/project.service';
+import { FirebaseService } from '@app-services/firebase.service';
 import { Project } from '@app-interfaces/project.interface';
 import { DialogComponent } from '@app-dialog/dialog.component';
+import { ProjectService } from '@app-services/project.service';
 
 @Component({
   selector: 'app-add-project',
@@ -10,24 +11,33 @@ import { DialogComponent } from '@app-dialog/dialog.component';
   styleUrls: ['./add-project.component.scss'],
 })
 export class AddProjectComponent {
-  public project: Project;
+  @Output() projectCreated = new EventEmitter<boolean>()
 
   constructor(
     public dialog: MatDialog,
-    private projectService: ProjectService
-  ) {}
+    private firebaseService: FirebaseService,
+    private projectService: ProjectService,
+  ) { }
 
   public openDialog(): void {
-    const project: Project = {
-      projectName: '',
-    };
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '300px',
-      data: project,
+      data: {},
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) this.projectService.addProject(result);
-    });
+    const dialogClosedObserver = (project: Project) => {
+      if (project === undefined || '') return;
+      this.firebaseService.createProject(project)
+        .subscribe(response => {
+          console.log(response);
+          if (response['name']) {
+          this.firebaseService.getProjectsFromDatabase()
+            .subscribe(projects => this.projectService.setProjects(projects));
+          }
+        })
+    }
+
+    dialogRef.afterClosed().subscribe(dialogClosedObserver);
   }
+  
 }

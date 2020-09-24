@@ -1,27 +1,19 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Project } from '@app-interfaces/project.interface';
+import { Project } from '../../shared/interfaces/project.interface'
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProjectService {
-  private projectList: Project[] = [];
-  private projects$ = new BehaviorSubject<Project[]>(this.projectList);
- 
-  constructor() {
-    const jsonData = JSON.parse(localStorage.getItem('projectList'));
-    if (jsonData) {
-      this.projectList.push(...jsonData);
-    }
-  }
-  
-  public addProject(project: Project): void {
-    this.projectList.push(project);
-    localStorage.setItem('projectList', JSON.stringify(this.projectList));
-  }
+  private projects$ = new Subject<Project[]>();
 
-  public getProjects(): BehaviorSubject<Project[]> {
+  public getProjects(): Observable<Project[]> {
     return this.projects$;
   }
+
+  public setProjects(projects: Project[]): void {
+    this.projects$.next(projects);
+  }
+
 }

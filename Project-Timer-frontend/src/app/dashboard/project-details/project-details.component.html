@@ -1,0 +1,9 @@
+<div *ngIf="project">
+    <div>
+        <strong>Project Name: </strong>
+        {{ project.projectName }} 
+    </div>
+    <button mat-raised-button color="warn" (click)='deleteProject()'>Delete</button>
+    <button mat-raised-button color="accent" (click)="openDialog(project)">Project Details</button>
+    <hr>
+</div>

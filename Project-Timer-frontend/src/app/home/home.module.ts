@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ProjectsComponent } from '@app-dashboard-projects/projects.component';
 import { RouterModule } from '@angular/router';
+import { ProjectDetailsComponent } from '@app-dashboard/project-details/project-details.component';
+import { ProjectDetailsDialog } from '@app-dashboard/project-details/project-details-dialog/project-details-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,8 @@ import { RouterModule } from '@angular/router';
     AddProjectComponent,
     DialogComponent,
     ProjectsComponent,
+    ProjectDetailsComponent,
+    ProjectDetailsDialog,
   ],
   imports: [
     CommonModule, 
@@ -24,6 +29,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule, 
     FormsModule,
     RouterModule,
+    HttpClientModule,
   ],
 })
 export class HomeModule {}
