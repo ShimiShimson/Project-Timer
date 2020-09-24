@@ -22,9 +22,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   private getProjectsFromDatabase(): void {
     const databaseSub = this.firebaseService.getProjectsFromDatabase()
-      .subscribe(response => {
-        this.projectService.setProjects(response);
-      })
+      .subscribe(response => this.projectService.setProjects(response));
   }
 
   private getProjectsFromStore(): void {
@@ -33,15 +31,14 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     }
 
   public deleteAllProjects(): void {
-    const result = window.confirm('Are you sure you want to delete ALL projects?')
-    if (!result) return
+    const result = window.confirm('Are you sure you want to delete ALL projects?');
+    if (!result) return;
     
     this.firebaseService.deleteAllProjects()
       .subscribe(response => {
-        console.log(response);
-        this.firebaseService.getProjectsFromDatabase()
-          .subscribe(projects => this.projectService.setProjects(projects));
-      }) 
+        if (response === null) console.log('All projects deleted succesfully.');
+        this.getProjectsFromDatabase();
+      });
   }
 
   ngOnDestroy(): void {

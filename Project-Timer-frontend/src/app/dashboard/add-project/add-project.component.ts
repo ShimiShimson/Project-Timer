@@ -16,7 +16,7 @@ export class AddProjectComponent {
   constructor(
     public dialog: MatDialog,
     private firebaseService: FirebaseService,
-    private projectService: ProjectService
+    private projectService: ProjectService,
   ) { }
 
   public openDialog(): void {
@@ -26,13 +26,13 @@ export class AddProjectComponent {
     });
 
     const dialogClosedObserver = (project: Project) => {
-      if (project === undefined || '') return
+      if (project === undefined || '') return;
       this.firebaseService.createProject(project)
         .subscribe(response => {
+          console.log(response);
           if (response['name']) {
-            console.log(response)
-            this.firebaseService.getProjectsFromDatabase()
-              .subscribe(projects => this.projectService.setProjects(projects));
+          this.firebaseService.getProjectsFromDatabase()
+            .subscribe(projects => this.projectService.setProjects(projects));
           }
         })
     }

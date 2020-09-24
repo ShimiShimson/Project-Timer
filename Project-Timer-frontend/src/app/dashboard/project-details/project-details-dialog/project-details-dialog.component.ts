@@ -10,7 +10,7 @@ import { Project } from '@app-interfaces/project.interface';
 export class ProjectDetailsDialog {
   constructor(
     public dialogRef: MatDialogRef<ProjectDetailsDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Project
+    @Inject(MAT_DIALOG_DATA) public data: Project,
   ) {}
 
   public onNoClick(): void {

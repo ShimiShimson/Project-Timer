@@ -29,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule, 
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
   ],
 })
 export class HomeModule {}

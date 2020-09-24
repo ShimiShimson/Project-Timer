@@ -21,10 +21,11 @@ export class ProjectDetailsComponent {
 
   public deleteProject(): void {
     const result = window.confirm('Are you sure?');
-    if (!result) return
+    if (!result) return;
 
     this.firebaseService.deleteProject(this.project.key)
       .subscribe(response => {
+        // if (response === null) console.log('Project deleted successfully');
         console.log(response);
         this.firebaseService.getProjectsFromDatabase()
           .subscribe(projects => this.projectService.setProjects(projects));
@@ -40,9 +41,9 @@ export class ProjectDetailsComponent {
 
     dialogRef.afterClosed()
       .subscribe(result => {
-        if (result === undefined || '') return
+        if (result === undefined || '') return;
         this.firebaseService.updateProject(project.key, result)
-          .subscribe(response => console.log(response))
+          .subscribe(response => console.log(response));
       })
   }
 }
