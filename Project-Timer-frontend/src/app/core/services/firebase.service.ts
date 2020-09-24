@@ -1,44 +1,46 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Project } from '@app-interfaces/project.interface';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseService {
-  private dbPath = '/projectList';
-  projectListRef: AngularFireList<Project> = null;
+  private dbPath = 'https://project-timer-shimi.firebaseio.com/projectList';
 
-  constructor(private db: AngularFireDatabase) {
-    this.projectListRef = db.list(this.dbPath);
+  constructor(private http: HttpClient) { }
+
+  public getProjectsFromDatabase(): Observable<Project[]> {
+    return this.http.get(this.dbPath + '.json')
+      .pipe(map(projects => {
+          const projectsArr = [];
+          for (const key in projects) {
+            projectsArr.push({ key: key, ...projects[key] });
+          }
+          return projectsArr;
+      }));
   }
 
-  getProjects(): Observable<any> {
-    return this.db.list(this.dbPath).valueChanges();
+  public createProject(project: Project): Observable<Object> {
+    return this.http.post(this.dbPath + '.json', project)
+      .pipe(catchError(error => of(`I caught error: ${error}`)));
   }
 
-  createProject(project: Project): void {
-    this.projectListRef.push(project);
+  public updateProject(key: string, project: Project): Observable<Object> {
+    return this.http.put(this.dbPath + `/${key}.json`, project)
+      .pipe(catchError(error => of(`I caught error: ${error}`)));
   }
 
-  updateProject(key: string, data: any): Promise<void> {
-    return this.projectListRef.update(key, data)
+  public deleteProject(key: string): Observable<Object> {
+    return this.http.delete(this.dbPath + `/${key}.json`)
+      .pipe(catchError(error => of(`I caught error: ${error}`)));
   }
 
-  deleteProject(key: string): Promise<void> {
-    return this.projectListRef.remove(key);
+  public deleteAllProjects(): Observable<Object> {
+    return this.http.delete(this.dbPath + 's.json')
+      .pipe(catchError(error => of(`I caught error: ${error}`)));
   }
 
-  getProjectList(): AngularFireList<Project> {
-    return this.projectListRef;
-  }
-
-  deleteAllProjects(): Promise<void> {
-    return this.projectListRef.remove();
-  }
-
-  stateChanges() {
-    this.projectListRef.stateChanges().subscribe(v => console.log(v))
-  }
 }

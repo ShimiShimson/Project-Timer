@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Project } from '@app-interfaces/project.interface';
 
@@ -7,18 +7,14 @@ import { Project } from '@app-interfaces/project.interface';
   templateUrl: './project-details-dialog.component.html',
   styleUrls: ['./project-details-dialog.component.scss']
 })
-export class ProjectDetailsDialog implements OnInit {
-
+export class ProjectDetailsDialog {
   constructor(
     public dialogRef: MatDialogRef<ProjectDetailsDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Project
   ) {}
 
-  onNoClick(): void {
+  public onNoClick(): void {
     this.dialogRef.close();
-  }
-
-  ngOnInit(): void {
   }
 
 }

@@ -1,46 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Project } from '@app-interfaces/project.interface';
-import { Observable } from 'rxjs';
+import { Subscription, of } from 'rxjs';
 import { FirebaseService } from '@app-services/firebase.service';
-import { map } from 'rxjs/operators';
+import { ProjectService } from '@app-services/project.service';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnDestroy {
   public projects: Project[];
-  public projectList: Observable<any>;
+  private storeSub: Subscription;
 
-  constructor(private firebaseService: FirebaseService) {}
+  constructor(private firebaseService: FirebaseService, private projectService: ProjectService) {}
 
   ngOnInit(): void {
-    this.getProjectList();
+    this.getProjectsFromDatabase();
+    this.getProjectsFromStore();
   }
 
-  getProjectList() {
-    this.firebaseService
-      .getProjectList()
-      .snapshotChanges()
-      .pipe(
-        map((changes) => 
-          {
-            // console.log(changes.payload.val())
-            return changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
-          }
-        )
-      )
-      .subscribe((projects) => {
-        this.projects = projects;
-      });
+  private getProjectsFromDatabase(): void {
+    const databaseSub = this.firebaseService.getProjectsFromDatabase()
+      .subscribe(response => {
+        this.projectService.setProjects(response);
+      })
   }
 
-  deleteAllProjects() {
+  private getProjectsFromStore(): void {
+    this.storeSub = this.projectService.getProjects()
+      .subscribe(projects => this.projects = projects);
+    }
+
+  public deleteAllProjects(): void {
     const result = window.confirm('Are you sure you want to delete ALL projects?')
     if (!result) return
-    this.firebaseService
-      .deleteAllProjects()
-      .catch((err) => console.log(err));
+    
+    this.firebaseService.deleteAllProjects()
+      .subscribe(response => {
+        console.log(response);
+        this.firebaseService.getProjectsFromDatabase()
+          .subscribe(projects => this.projectService.setProjects(projects));
+      }) 
   }
+
+  ngOnDestroy(): void {
+    this.storeSub.unsubscribe();
+  }
+
 }
